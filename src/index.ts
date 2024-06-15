@@ -224,4 +224,59 @@ const calcTotal =(a:number, ...nums:number[]): number =>{
 showLog(calcTotal(29, 100))
 
 
-//never ype of function used to declare erro message
+//never type of function can return any value
+const checkError = (errorMsg:string): never =>{
+    throw new Error(errorMsg)
+}
+
+
+//custom type guard
+const  isNumber = (value: any): boolean => {
+    return typeof value === 'number'
+    ? true : false
+}
+
+
+//using generics 
+const identity = <T>(arg: T): T =>{
+    console.log(arg)
+    return arg
+}
+
+console.log(identity<string>('Hello Generics...'))
+
+// with interfaces
+interface Resource<T> {
+    uid: number;
+    resourceName: string;
+    data: T;
+  }
+  
+  const docThree: Resource<object> = {
+    uid: 1, 
+    resourceName: 'person', 
+    data: { name: 'shaun' }
+  };
+  
+  const docFour: Resource<string[]> = {
+    uid: 1, 
+    resourceName: 'shoppingList', 
+    data: ['bread', 'milk']
+  };
+  
+  console.log(docThree, docFour);
+
+
+  // TUPLES
+let arr = ['ryu', 25, true];
+arr[0] = false;
+arr[1] = 'yoshi';
+arr = [30, false, 'yoshi'];
+
+let tup: [string, number, boolean] = ['ryu', 25, true];
+// tup[0] = false;
+tup[0] = 'ken';
+
+let student: [string, number];
+//student = [23564, 'chun-li'];
+student = ['chun-li', 23564];

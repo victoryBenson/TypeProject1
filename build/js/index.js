@@ -117,4 +117,40 @@ const calcTotal = (a, ...nums) => {
     return a + nums.reduce((prev, curr) => prev + curr);
 };
 showLog(calcTotal(29, 100));
-//never ype of function used to declare erro message
+//never type of function can return any value
+const checkError = (errorMsg) => {
+    throw new Error(errorMsg);
+};
+//custom type guard
+const isNumber = (value) => {
+    return typeof value === 'number'
+        ? true : false;
+};
+//using generics 
+const identity = (arg) => {
+    console.log(arg);
+    return arg;
+};
+console.log(identity('Hello Generics...'));
+const docThree = {
+    uid: 1,
+    resourceName: 'person',
+    data: { name: 'shaun' }
+};
+const docFour = {
+    uid: 1,
+    resourceName: 'shoppingList',
+    data: ['bread', 'milk']
+};
+console.log(docThree, docFour);
+// TUPLES
+let arr = ['ryu', 25, true];
+arr[0] = false;
+arr[1] = 'yoshi';
+arr = [30, false, 'yoshi'];
+let tup = ['ryu', 25, true];
+// tup[0] = false;
+tup[0] = 'ken';
+let student;
+//student = [23564, 'chun-li'];
+student = ['chun-li', 23564];
